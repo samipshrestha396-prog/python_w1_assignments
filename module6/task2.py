@@ -1,38 +1,21 @@
-# Write a program that asks the user to enter names until he/she enters an empty string.
-# After each name is read the program either prints out New name or Existing name depending
-# on whether the name was entered for the first time.
-# Finally, the program lists out the input names one by one, one below another
-# in any order. Use the set data structure to store the names.
+# Modify the function above so that it gets the number of sides on the dice as a parameter.
+# With the modified function you can for example roll a 21-sided role-playing dice.
+# The difference to the last exercise is that the dice rolling in the main program continues until
+# -the program gets the maximum number on the dice, which is asked from the user at the beginning.
 
-names=set()
-while True:
-    user_input = input("Enter your name(Press enter to exit!): ")
-    if user_input=="":
-        break
-    if user_input in names:
-        print("Existing name")
-    else:
-        names.add(user_input)
+import random
 
+number_sides= int(input("enter the number of roll: "))
+def dice_roll(sides):
+    times = 0
+    while True:
+        rolls=random.randint(1,sides)
+        print("you rolled:",rolls)
+        times += 1
+        if rolls==number_sides:
+            print("you got your maximumm number!",number_sides,"at",times,"rolls!")
 
-if user_input=="":
-    for name in  names:
-        print(name)
+            break
 
 
-# this is a slightly differet way!
-names=set()
-user_input=input("enter your name: ")
-while user_input!="":
-
-    if user_input in names:
-        print("exixting")
-    else:
-        names.add(user_input)
-
-    user_input = input("enter your name: ")
-
-if user_input=="":
-    for i in names:
-        print(i)
-
+dice_roll(number_sides)

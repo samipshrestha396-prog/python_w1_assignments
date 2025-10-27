@@ -1,36 +1,42 @@
-# Write a program that asks the user to enter the ICAO codes of two airports.
-# The program prints out the distance between the two airports in kilometers.
-# The calculation is based on the airport coordinates fetched from the database.
-# Calculate the distance using the geopy library: https://geopy.readthedocs.io/en/stable/.
-# Install the library by selecting View / Tool Windows / Python Packages in your PyCharm IDE,
-# write geopy into the search field and finish the installation.
+# Write a program for fetching and storing airport data. The program asks the user if they want to enter a new airport,
+# fetch the information of an existing airport or quit. If the user chooses to enter a new airport,
+# the program asks the user to enter the ICAO code and name of the airport.
+# If the user chooses to fetch airport information instead, the program asks for the ICAO code of the airport and
+# prints out the corresponding name. If the user chooses to quit,
+# the program execution ends. The user can choose a new option as many times they want until they choose to quit.
+# (The ICAO code is an identifier that is unique to each airport. For example, the ICAO code of Helsinki-Vantaa Airport is EFHK.
+# You can easily find the ICAO codes of different airports online.)
+#
+airports={
+    "abcd":"imadol airport",
+    "efgh":"sanagaun  airport",
+    "ijkl":" balkumari airport"
 
-from geopy import distance
-import mysql.connector
+}
+print("Store airports: YES OR NO ")
+print("Fetch airport: YES OR NO ")
+print("Exit : Press enter OR type Yes")
 
-connection=mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="12345",
-    database="flight_game"
-)
-
-
-
-def search_for_distance(icao1_value,icao2_value):
-    cursor=connection.cursor()
-    cursor.execute( F"select latitude_deg,longitude_deg from airport where ident='{icao1_value}';")
-    result1 = cursor.fetchone() #fechall retrieve all the data but fetchon retrieve one row
-    cursor.execute(F"select latitude_deg,longitude_deg from airport where ident='{icao2_value}';")
-    result2=cursor.fetchone()
-    if len(result1) and len(result2)==2:
-        deg1=(result1[0],result1[1])
-        deg2 = (result2[0], result2[1])
-        total_dis=distance.distance(deg1,deg2).km
-        print("Total distanck between two airport is=" ,total_dis,"km")
+while True:
+    new_airport=input("Do you want to store new airport:")
+    if new_airport == "yes":
+        input_icao = input("Enter the ICAO code: ")
+        input_name = input("Enter the air port name : ")
+        airports.update({input_icao: input_name})
+        print("Stored successfully!")
+    if new_airport=="no":
+        continue
 
 
+    fetch_airport = input("Do you want to fetch the airport:")
+    if  fetch_airport=="yes":
+        input_icao = input("Enter the ICAO code: ")
+        print(airports[input_icao])
 
-input_icao1 = input("Enter the ICAO code of 1st port: ").upper()
-input_icao2=  input("Enter the ICAO code of 2st port: ").upper()
-search_for_distance(input_icao1,input_icao2)
+
+
+
+
+    if new_airport=="" and fetch_airport=="":
+        print(airports)
+

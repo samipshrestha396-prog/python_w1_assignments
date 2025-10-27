@@ -1,6 +1,7 @@
-actual_zander=42
-len_zander=int(input("Enter the size of zander in cm: "))
-if len_zander>=actual_zander:
-    print("OHH WOW! YOU GOT YOUR FISH!!")
-else:
-    print(f"ohh noo! Please! release the  fish and  your fish is in {actual_zander-len_zander}cm below dip..")
+# Write a program that asks your name and then greets you by your name: Examples:
+#
+# If you enter Viivi as your name, the program will greet you with Hello, Viivi!.
+# If you enter Ahmed as your name, the program will greet you with Hello, Ahmed!.
+
+name=input("Enter your full name:")
+print("YOU ARE WELCOME!",name)  

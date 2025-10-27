@@ -1,14 +1,12 @@
-# Write a function that returns a random dice roll between 1 and 6.
-# The function should not have any parameters.
-# Write a main program that rolls the dice until the result is 6.
-# The main program should print out the result of each roll.
+# Write a program that asks the user how many dice to roll.
+# The program rolls all the dice once and prints out the sum of the numbers.
+# Use a for loop.
 
 import random
-def dice_roll():
-   return random.randint(1,6)
-while True:
-    roll= dice_roll()
-    print("You rolled", roll)
-    if roll==6:
-        print("you got 6!")
-        break
+total_sum=0
+roll=int(input("Enter the number of dice roll: "))
+for i in range(roll):
+    random1 = random.randint(1, 6)
+    total_sum= total_sum+random1
+
+print(total_sum)

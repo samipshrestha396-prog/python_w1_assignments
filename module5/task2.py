@@ -1,21 +1,19 @@
-# Modify the function above so that it gets the number of sides on the dice as a parameter.
-# With the modified function you can for example roll a 21-sided role-playing dice.
-# The difference to the last exercise is that the dice rolling in the main program continues until
-# -the program gets the maximum number on the dice, which is asked from the user at the beginning.
+# Write a program that asks the user to enter numbers until they input an empty string to quit.
+# At the end, the program prints out the five greatest numbers sorted in descending order.
+# Hint: You can reverse the order of sorted list items by using the sort method with the reverse=True argument.
 
-import random
+list = []
 
-number_sides= int(input("enter the number of roll: "))
-def dice_roll(sides):
-    times = 0
-    while True:
-        rolls=random.randint(1,sides)
-        print("you rolled:",rolls)
-        times += 1
-        if rolls==number_sides:
-            print("you got your maximumm number!",number_sides,"at",times,"rolls!")
+user_input = int(input("Enter the numbers (press enter to exit): "))
 
-            break
+for i in range((user_input)):
+    # if hamle input chai loop vitra ligyo vane range jati xa tya samma input magxa yo for loop ko case ma
+    user_input = int(input("Enter the degits : "))
+
+    if user_input == " ":
+        break
+    list.append(int(user_input))
+    list.sort(reverse=True)  # if we want in asccending order then(list.sort)
+print(list)
 
 
-dice_roll(number_sides)

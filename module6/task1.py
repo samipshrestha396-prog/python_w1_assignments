@@ -1,15 +1,14 @@
-# Write a program that asks the user for a number of a month and then prints out the corresponding
-# season (spring, summer, autumn, winter). Save the seasons as strings into a
-# tuple in your program. We can define each season to last three months,
-# December being the first month of winter.
+# Write a function that returns a random dice roll between 1 and 6.
+# The function should not have any parameters.
+# Write a main program that rolls the dice until the result is 6.
+# The main program should print out the result of each roll.
 
-user_input=int(input("Enter the number of month: "))
-seasons=("spring","summer","autumn","winter")
-if user_input in (12,1,2):
-    print(seasons[3])
-elif user_input in (3,4,5):
-    print(seasons[0])
-elif user_input in (6,7,8):
-    print(seasons[1])
-else:
-    print(seasons[2])
+import random
+def dice_roll():
+   return random.randint(1,6)
+while True:
+    roll= dice_roll()
+    print("You rolled", roll)
+    if roll==6:
+        print("you got 6!")
+        break

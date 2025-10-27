@@ -1,12 +1,7 @@
-# Write a program that asks the user how many dice to roll.
-# The program rolls all the dice once and prints out the sum of the numbers.
-# Use a for loop.
+# Write a program that uses a while loop to print out all numbers divisible by three in the range of 1-1000.
 
-import random
-total_sum=0
-roll=int(input("Enter the number of dice roll: "))
-for i in range(roll):
-    random1 = random.randint(1, 6)
-    total_sum= total_sum+random1
-
-print(total_sum)
+i = 1
+while i <= 1000:
+    if i % 3 == 0:
+        print(i)
+    i += 1

@@ -1,24 +1,11 @@
-# Write a program that asks for the biological gender and hemoglobin value (g/l).
-# The program the notifies the user if the hemoglobin value is low, normal or high.
-#
-# A normal hemoglobin value for adult females is between 117-155 g/l.
-# A normal hemoglobin value for adult males is between 134-167 g/l.
+# Write a program that asks the user for the length and width of a rectangle.
+# -The program then prints out the perimeter and area of the rectangle.
+# -The perimeter of a rectangle is the sum of the lengths of each four sides.
 
-gender=str(input("Enter your gender: "))
-level=float(input("Enter your hemoglobin value(g/l): "))
-
-if gender=="male":
-    if level< 134:
-        print("Your hemoglobin is low!")
-    elif level < (134<=level<=167):
-            print("Your hemoglobin is normal!")
-    else:
-            print("Your hemoglobin is high!")
-
-if gender=="female" and 117<=level<=155:
-    if level < 117:
-         print("Your hemoglobin is low!")
-    elif level< (117<=level<=155):
-        print("Your hemoglobin is normal!")
-    else:
-        (print("Your hemoglobin is high! "))
+length=float(input("Enter the length of rectangle:"))
+breadth=float(input("Enter the breadth of rectangle:"))
+unit=str(input("Enter the unit such as.{cm,m,km,miles,ft}:"))
+p=2*(length+breadth)
+a=length*breadth
+print(f"The are of rectangle is:{a}",unit,"square")
+print("The perimeter of rectangle is:",p,unit,"square")
