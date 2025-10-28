@@ -1,0 +1,42 @@
+# Extend the program by adding an accelerate method into the new class.
+# The method should receive the change of speed (km/h) as a parameter.
+# If the change is negative, the car reduces speed.
+# The method must change the value of the speed property of the object.
+# The speed of the car must stay below the set maximum and cannot be less than zero.
+# Extend the main program so that the speed of the car is first increased by +30 km/h, then +70 km/h and finally +50 km/h.
+# Then print out the current speed of the car. Finally,
+# use the emergency brake by forcing a -200 km/h change on the speed and then print out the final speed.
+# The travelled distance does not have to be updated yet.
+
+
+class Car:
+    def __init__(self, reg_num, max_speed):
+        self.reg_num = reg_num
+        self.max_speed = max_speed
+        self.current_speed = 0
+
+    def accelerate(self, change):
+        self.current_speed += change
+
+
+        if self.current_speed > self.max_speed:
+            self.current_speed = self.max_speed
+
+
+        if self.current_speed < 0:
+            self.current_speed = 0
+
+
+
+
+my_car = Car("ABC-123", 200)
+
+my_car.accelerate(30)
+my_car.accelerate(70)
+my_car.accelerate(50)
+
+print("Current speed:", my_car.current_speed)
+
+my_car.accelerate(-200)
+
+print("Final speed:", my_car.current_speed)
